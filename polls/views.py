@@ -81,7 +81,7 @@ def searchData(request):
             d1 = datetime.strptime(d1, "%d/%m/%Y")
             target=get_object_or_404(Location, name=request.POST["locationName"])
             dList=[(d1-timedelta(i+1)).strftime("%d/%m/%Y") for i in range(7)]
-            print(dList)
+            #print(dList)
             d1 = (d1.strftime("%d/%m/%Y"))
             response = requests.get(target.apiString)
             dictList=[]
