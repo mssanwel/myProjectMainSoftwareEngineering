@@ -45,13 +45,13 @@
       <input type="text" id="fatalitiesMillion" name="fatalitiesMillion" value="{% dictKeyLookup covidData "deathCasesMillion" %}" disabled><br>
 
       <label for="newCases">Number of new cases:</label><br>
-      <input type="text" id="newCases" name="newCases" value="{% dictKeyLookup covidData "Number of cases fulfilling the reporting criteria" %}" disabled><br>
+      <input type="text" id="newCases" name="newCases" value="{% dictKeyLookup covidData "newConfirmedCases" %}" disabled><br>
 
       <label for="avgNewCases">7 day average of new cases:</label><br>
       <input type="text" id="urlString" name="urlString" value="{% dictKeyLookup covidData "avgNewCases" %}" disabled><br>
 
       <label for="newFatalities">Number of new fatalities:</label><br>
-      <input type="text" id="newFatalities" name="newFatalities" value="{% dictKeyLookup covidData "Number of cases fulfilling the reporting criteria" %}" disabled><br>
+      <input type="text" id="newFatalities" name="newFatalities" value="{% dictKeyLookup covidData "newDeathCases" %}" disabled><br>
 
       <label for="avgNewFatalities">7 day average of new fatalities:</label><br>
       <input type="text" id="avgNewFatalities" name="avgNewFatalities" value="{% dictKeyLookup covidData "avgNewDeaths" %}" disabled><br>
