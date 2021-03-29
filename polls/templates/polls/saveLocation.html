@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <title>Covid Data Tracker</title>
+</head>
+
+  <body>
+
+  <h1><b>Covid Tracker</b></h1>
+  <h3>Enter Data</h3>
+
+  {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+  <form action="{% url 'polls:saveLocation' %}" method="post">
+  {% csrf_token %}
+
+      <label for="locationName">Location:</label><br>
+      <input type="text" id="locationName" name="locationName"><br>
+
+      <label for="population">Population:</label><br>
+      <input type="text" id="population" name="population"><br>
+
+      <label for="apiString">API:</label><br>
+      <input type="text" id="apiString" name="apiString"><br>
+
+      <label for="urlString">URL:</label><br>
+      <input type="text" id="urlString" name="urlString"><br>
+
+  <input type="submit" value="SaveData">
+  </form>
+
+  <br><br>
+  <li><a href="{% url 'polls:index' %}">Go back to HomePage</a></li>
+
+  <body>
+
+</html>

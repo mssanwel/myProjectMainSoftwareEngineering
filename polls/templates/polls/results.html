@@ -1,0 +1,12 @@
+<h1>Data Saved</h1>
+
+<ul>
+  <h3>The following data has been saved:<h3> <br>
+    <li>{{ location.name }}</li>
+    <li>{{ location.population }}</li>
+    <li>{{ location.apiString }}</li>
+    <li>{{ location.urlString }}</li>
+</ul>
+
+<a href="{% url 'polls:addData' %}">Submit another response</a><br>
+<a href="{% url 'polls:index' %}">Go to HomePage</a>

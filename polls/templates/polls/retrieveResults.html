@@ -1,0 +1,67 @@
+<html>
+{% load custom_tags %}
+<head>
+  <title>Covid Data Tracker</title>
+</head>
+
+<body>
+  <h1><b>Covid Tracker</b></h1>
+  <h3>Retrieve results</h3>
+
+  {% if error_message %}<p style="color:red"><strong>{{ error_message }}</strong></p>{% endif %}
+
+  <form action="{% url 'polls:searchData' %}" method="post" id="formL">
+  {% csrf_token %}
+
+
+       <label for="locationName">Location:</label>
+       <select id="locationName" name="locationName" form="formL">
+        <option value="None">Select location</option>
+        {% for Loc in Location %}
+              <option value="{{Loc.name}}">"{{Loc.name}}"</option>
+        {% endfor %}
+
+      </select><br>
+
+
+
+
+      <label for="locationName"></label>
+      <input type="text" id="locationName" name="locationName" value="{{ target.name }}" disabled><br>
+
+      <label for="dateAsOf">Date:</label><br>
+      <input type="date" id="dateAsOf" name="dateAsOf" value="{% dictKeyLookup covidData "As of date" %}"><br>
+
+      <label for="confirmedCases">Total confirmed cases:</label><br>
+      <input type="text" id="confirmedCases" name="confirmedCases" value="{% dictKeyLookup covidData "Number of confirmed cases" %}" disabled><br>
+
+      <label for="confirmedCasesMillion">Total confirmed cases per million:</label><br>
+      <input type="text" id="confirmedCasesMillion" name="confirmedCasesMillion" value="{% dictKeyLookup covidData "confirmedCasesMillion" %}" disabled><br>
+
+      <label for="fatalities">Total fatalities:</label><br>
+      <input type="text" id="fatalities" name="fatalities" value="{% dictKeyLookup covidData "Number of death cases" %}" disabled><br>
+
+      <label for="fatalitiesMillion">Fatalities per million:</label><br>
+      <input type="text" id="fatalitiesMillion" name="fatalitiesMillion" value="{% dictKeyLookup covidData "deathCasesMillion" %}" disabled><br>
+
+      <label for="newCases">Number of new cases:</label><br>
+      <input type="text" id="newCases" name="newCases" value="{% dictKeyLookup covidData "Number of cases fulfilling the reporting criteria" %}" disabled><br>
+
+      <label for="avgNewCases">7 day average of new cases:</label><br>
+      <input type="text" id="urlString" name="urlString" value="{% dictKeyLookup covidData "avgNewCases" %}" disabled><br>
+
+      <label for="newFatalities">Number of new fatalities:</label><br>
+      <input type="text" id="newFatalities" name="newFatalities" value="{% dictKeyLookup covidData "Number of cases fulfilling the reporting criteria" %}" disabled><br>
+
+      <label for="avgNewFatalities">7 day average of new fatalities:</label><br>
+      <input type="text" id="avgNewFatalities" name="avgNewFatalities" value="{% dictKeyLookup covidData "avgNewDeaths" %}" disabled><br>
+
+
+  <input type="submit" value="Retrieve Data">
+  </form>
+
+  <br><br>
+  <li><a href="{% url 'polls:index' %}">Go back to HomePage</a></li>
+  <body>
+
+</html>
